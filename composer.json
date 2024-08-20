@@ -1,0 +1,11 @@
+{
+    "name": "sigsign/phpunit-ci-testing",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Sigsign",
+            "email": "sig@signote.cc"
+        }
+    ],
+    "require": {}
+}
