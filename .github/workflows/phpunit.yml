@@ -1,0 +1,51 @@
+name: PHPUnit
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php:
+          - '5.3'
+          - '5.4'
+          - '5.5'
+          - '5.6'
+          - '7.0'
+          - '7.1'
+          - '7.2'
+          - '7.3'
+          - '7.4'
+          - '8.0'
+          - '8.1'
+          - '8.2'
+          - '8.3'
+
+    name: "Test on PHP ${{ matrix.php }}"
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: "Setup PHP ${{ matrix.php }}"
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        coverage: none
+      env:
+        fail-fast: true
+
+    - name: Install composer packages
+      uses: ramsey/composer-install@v2
+
+    - name: Run unit tests
+      run: composer tests

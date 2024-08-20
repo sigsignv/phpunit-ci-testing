@@ -7,6 +7,9 @@
             "email": "sig@signote.cc"
         }
     ],
+    "scripts": {
+        "test": "phpunit --version"
+    },
     "require-dev": {
         "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5 || ^8.5 || ^9.6 || ^10.5 || ^11.3"
     }
