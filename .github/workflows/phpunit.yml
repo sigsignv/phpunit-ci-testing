@@ -48,4 +48,4 @@ jobs:
       uses: ramsey/composer-install@v2
 
     - name: Run unit tests
-      run: composer tests
+      run: composer test
